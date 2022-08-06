@@ -21,6 +21,8 @@ class History(BaseModel):
     last_visit = peewee.DateTimeField()
     visit_count = peewee.IntegerField(default=0)
 
+    last_submit = peewee.DateTimeField(null = True)
+
 
 class State(BaseModel):
     key = peewee.CharField(primary_key=True)
