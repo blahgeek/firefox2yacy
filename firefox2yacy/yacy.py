@@ -53,7 +53,10 @@ def submit_one(item: models.History, setting: YacySetting, counter: _ProgressCou
                                     crawlingMode='url',
                                     crawlingURL=str(item.url),
                                     **setting.crawler_options))
-    resp.raise_for_status()
+    if resp.status_code == 431:
+        logger.debug('URL too large, ignore')
+    else:
+        resp.raise_for_status()
 
     item.last_submit = datetime.datetime.now()
     item.save()
