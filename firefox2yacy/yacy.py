@@ -64,8 +64,8 @@ def submit_one(item: models.History, setting: YacySetting, counter: _ProgressCou
 def update_yacy_all(setting: YacySetting):
     query = (models.History.select()
              .where(models.History.last_submit.is_null(True) |
-                    (models.History.last_submit < models.History.last_visit &
-                     models.History.last_submit < datetime.datetime.now() - datetime.timedelta(days=1))))
+                    ((models.History.last_submit < models.History.last_visit) &
+                     (models.History.last_submit < datetime.datetime.now() - datetime.timedelta(days=1)))))
 
     logger.info(f'Submitting {len(query)} URLs for yacy...')
     counter = _ProgressCounter(len(query))
