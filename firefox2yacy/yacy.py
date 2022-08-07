@@ -25,8 +25,13 @@ class YacySetting:
     crawler_options: dict[str, str] = dataclasses.field(default_factory=lambda: {
         'crawlingDepth': '0',
         'indexText': 'on',
+        'indexMedia': 'on',
+        'deleteold': 'off',
         'crawlingQ': 'on',
         'recrawl': 'reload',
+        'reloadIfOlderNumber': '0',
+        'reloadIfOlderUnit': 'hour',
+        'crawlerAlwaysCheckMediaType': 'on',
     })
 
 
