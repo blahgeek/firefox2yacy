@@ -9,6 +9,7 @@ pyfxa = "==0.7.7"
 syncclient = "==0.8.0"
 pycryptodome = "*"
 peewee = "*"
+beautifulsoup4 = "*"
 
 [dev-packages]
 

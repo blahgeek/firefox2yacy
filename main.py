@@ -35,6 +35,7 @@ def main():
                                     username = args.yacy_user,
                                     password = args.yacy_pass)
     yacy.update_yacy_all(yacy_setting)
+    yacy.clear_api_history(yacy_setting)
 
 
 if __name__ == '__main__':
